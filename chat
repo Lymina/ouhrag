@@ -1,0 +1,34 @@
+slovo = list(input())
+
+start_slovo_flag = 0
+end_slovo_flag = 0
+
+h_flag = 0
+e_flag = 0
+l1_flag = 0
+l2_flag = 0
+o_flag = 0
+
+for i in slovo:
+    if i == "h" and start_slovo_flag == 0:
+        h_flag = 1
+        start_slovo_flag = 1
+
+    elif i == "e" and start_slovo_flag == 1 and h_flag == 1:
+        e_flag = 1
+
+    elif i == "l" and start_slovo_flag == 1 and h_flag == 1 and e_flag == 1 and l1_flag == 0:
+        l1_flag = 1
+
+    elif i == "l" and start_slovo_flag == 1 and h_flag == 1 and e_flag == 1 and l1_flag == 1:
+        l2_flag = 1
+
+    elif i == "o" and start_slovo_flag == 1 and h_flag == 1 and e_flag == 1 and l1_flag == 1 and l2_flag == 1:
+        o_flag = 1
+        end_slovo_flag = 1
+        break
+
+if end_slovo_flag:
+    print("YES")
+else:
+    print("NO")
